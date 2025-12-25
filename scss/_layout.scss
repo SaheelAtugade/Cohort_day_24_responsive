@@ -1,0 +1,251 @@
+main {
+  max-width: 1600px;
+  margin: 0 auto;
+
+  section.view1 {
+    width: 100%;
+    @include flex-column(1rem);
+    padding: 1rem;
+
+    .top {
+      width: 100%;
+
+      img {
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    .bottom {
+      width: 100%;
+      background-color: $primary-back;
+      @include flex-column(4rem);
+      padding: 1.6rem;
+      border-radius: 8px;
+
+      > p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        font-weight: 600;
+        font-family: $parafont;
+      }
+
+      .text {
+        @include flex-column(1rem);
+
+        h1 {
+          color: $primary-white;
+          font-family: $headingfont, system-ui, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+            "Open Sans", "Helvetica Neue", sans-serif;
+          font-size: 2.25rem;
+          text-transform: uppercase;
+          font-weight: 400;
+          line-height: 1.2;
+          padding: 0rem 1rem 0rem 0rem;
+        }
+
+        p {
+          color: $primary-grey;
+          font-family: $parafont, system-ui, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+            "Helvetica Neue", sans-serif;
+          font-size: 1.3rem;
+          line-height: 1.5;
+        }
+
+        button {
+          width: fit-content;
+          padding: 0.3rem 0.8rem;
+          border: none;
+          outline: none;
+          font-weight: 600;
+          border-radius: 5px;
+          color: rgb(31, 31, 31);
+        }
+      }
+    }
+  }
+
+  section.view2 {
+    width: 100%;
+    @include flex-column(2rem);
+    padding: 1rem;
+
+    .top,
+    .bottom {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+
+      .element {
+        text-align: center;
+        font-family: $headingfont;
+        @include flex-column(0.2rem);
+
+        small {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+            Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+            sans-serif;
+          font-weight: 300;
+          font-size: 0.9rem;
+          letter-spacing: 2px;
+          opacity: 0.7;
+        }
+
+        h2 {
+          font-size: 2.25rem;
+          color: $primary-white;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  section.view3 {
+    width: 100%;
+    @include flex-column(1rem);
+    padding: 1rem;
+
+    .philosophy {
+      @include flex-column(1rem);
+
+      .top,
+      .bottom {
+        width: 100%;
+
+        img {
+          width: 100%;
+          border-radius: 10px;
+        }
+      }
+
+      .bottom {
+        background-color: $primary-back;
+        padding: 2rem;
+        border-radius: 10px;
+        @include flex-column(4rem);
+
+        h3 {
+          font-size: 0.9rem;
+          color: $primary-white;
+          font-weight: 400;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+        }
+
+        .text {
+          @include flex-column(1rem);
+
+          h2 {
+            font-size: 2.1rem;
+            color: $primary-white;
+            font-family: $headingfont;
+            font-weight: 400;
+            text-transform: uppercase;
+            line-height: 2.9rem;
+          }
+
+          .paragraphs {
+            @include flex-column(0rem);
+            p {
+              font-family: $parafont;
+              color: $primary-grey;
+              font-size: 1rem;
+              font-weight: 500;
+              line-height: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .vision {
+      @extend .philosophy;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    section.view1 {
+      flex-direction: row;
+
+      .top,
+      .bottom {
+        width: 50%;
+      }
+
+      .bottom {
+        justify-content: space-between;
+        padding: 4.5rem;
+
+        .text {
+          gap: 0.9rem;
+
+          h1 {
+            font-size: 4rem;
+          }
+
+          button {
+            padding: 0.4rem 1rem;
+          }
+        }
+      }
+    }
+
+    section.view2 {
+      flex-direction: row;
+      gap: 0;
+      justify-content: space-around;
+      padding: 3rem 0rem;
+
+      .top,
+      .bottom {
+        width: 50%;
+        .element {
+          h2 {
+            font-size: 4rem;
+          }
+        }
+      }
+    }
+
+    section.view3 {
+      .philosophy,
+      .vision {
+        
+        .top{
+          width: 50%;
+        }
+        .bottom {
+          padding: 4rem;
+          width: 50%;
+          justify-content: space-between;
+
+          .text{
+            gap: 2rem;
+            h2{
+              font-size: 3rem;
+            }
+            .paragraphs{
+              flex-direction: row;
+              p{
+                font-size: 1.2rem;
+                line-height: 1.8rem;
+              }
+            }
+          }
+        }
+
+      }
+
+      .philosophy {
+        flex-direction: row-reverse;
+      }
+      .vision {
+        flex-direction: row;
+      }
+    }
+  }
+}
